@@ -1,0 +1,340 @@
+.spacecraft-workshop {
+  margin-top: 1px;
+}
+
+.spacecraft-workshop-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(205px, 0.8fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.spacecraft-preview-column {
+  min-width: 0;
+}
+
+.spacecraft-stage {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  border: 1px solid #263d54;
+  border-radius: 6px;
+  background:
+    radial-gradient(ellipse at 50% 46%, rgba(32, 99, 137, 0.27), transparent 49%),
+    radial-gradient(ellipse at 50% 100%, rgba(12, 41, 63, 0.76), transparent 70%),
+    #081321;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.spacecraft-stage-drop-active {
+  border-color: #69d6eb;
+  box-shadow: inset 0 0 0 1px rgba(105, 214, 235, 0.45), 0 0 24px rgba(71, 183, 217, 0.12);
+}
+
+.spacecraft-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+.spacecraft-stage-label {
+  position: absolute;
+  inset: 12px 13px auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: #82a2bd;
+  font-family: var(--mono);
+  font-size: 7px;
+  letter-spacing: 0.9px;
+  pointer-events: none;
+}
+
+.spacecraft-preview-message,
+.spacecraft-drop-message,
+.spacecraft-empty-message {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max-content;
+  max-width: calc(100% - 34px);
+  margin: 0;
+  padding: 9px 12px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(95, 169, 197, 0.4);
+  border-radius: 4px;
+  color: #bbd5e6;
+  background: rgba(7, 17, 29, 0.84);
+  font-size: 9px;
+  line-height: 1.5;
+  text-align: center;
+  pointer-events: none;
+}
+
+.spacecraft-drop-message {
+  top: auto;
+  bottom: 13px;
+  transform: translateX(-50%);
+  color: #78dff0;
+  background: rgba(7, 25, 38, 0.94);
+}
+
+.spacecraft-empty-message {
+  color: #8fa9bd;
+}
+
+.spacecraft-view-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 0 11px;
+  border-bottom: 1px solid rgba(43, 59, 81, 0.7);
+}
+
+.spacecraft-view-controls > span {
+  color: #8093a9;
+  font-size: 8px;
+}
+
+.spacecraft-view-controls > div {
+  display: flex;
+  gap: 5px;
+}
+
+.spacecraft-view-controls button,
+.spacecraft-part-heading button,
+.spacecraft-installed button {
+  min-height: 25px;
+  padding: 4px 7px;
+  border: 1px solid #314961;
+  border-radius: 4px;
+  color: #a7c0d3;
+  background: #102033;
+  font-size: 8px;
+  cursor: pointer;
+  transition: border-color 150ms ease, color 150ms ease, background 150ms ease;
+}
+
+.spacecraft-view-controls button:hover:not(:disabled),
+.spacecraft-part-heading button:hover,
+.spacecraft-installed button:hover {
+  border-color: #58bad7;
+  color: #d7f4fb;
+  background: #153048;
+}
+
+.spacecraft-view-controls button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.spacecraft-installed {
+  padding-top: 10px;
+}
+
+.spacecraft-installed h3,
+.spacecraft-part-library-heading h3 {
+  margin: 0;
+  color: #cbd9e8;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.spacecraft-installed ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 0;
+  margin: 8px 0 0;
+  list-style: none;
+}
+
+.spacecraft-installed li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 4px 3px 7px;
+  border: 1px solid rgba(83, 163, 191, 0.3);
+  border-radius: 4px;
+  color: #9dc9dc;
+  background: rgba(25, 66, 87, 0.32);
+  font-size: 7px;
+}
+
+.spacecraft-installed button {
+  min-height: 20px;
+  padding: 2px 5px;
+  color: #c4a4a4;
+  border-color: rgba(172, 108, 108, 0.35);
+  background: rgba(76, 35, 44, 0.34);
+}
+
+.spacecraft-installed p {
+  margin: 7px 0 0;
+  color: #8294aa;
+  font-size: 8px;
+  line-height: 1.5;
+}
+
+.spacecraft-part-library {
+  min-width: 0;
+}
+
+.spacecraft-part-library-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 7px;
+}
+
+.spacecraft-part-library-heading > span {
+  color: #7790aa;
+  font-family: var(--mono);
+  font-size: 6px;
+  letter-spacing: 0.7px;
+}
+
+.spacecraft-part-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 418px;
+  overflow-y: auto;
+  padding-right: 3px;
+}
+
+.spacecraft-part {
+  padding: 8px;
+  border: 1px solid #26384e;
+  border-radius: 5px;
+  background: rgba(13, 25, 41, 0.82);
+  cursor: grab;
+  transition: border-color 150ms ease, background 150ms ease, transform 150ms ease;
+}
+
+.spacecraft-part:active {
+  cursor: grabbing;
+}
+
+.spacecraft-part:hover,
+.spacecraft-part-selected {
+  border-color: rgba(72, 173, 208, 0.59);
+  background: rgba(27, 70, 96, 0.32);
+}
+
+.spacecraft-part-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.spacecraft-part-heading strong {
+  color: #dce8f5;
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.spacecraft-part-heading button {
+  min-height: 22px;
+  padding: 3px 6px;
+  flex: 0 0 auto;
+  color: #79d3e6;
+  font-size: 7px;
+}
+
+.spacecraft-part p {
+  margin: 5px 0 7px;
+  color: #899bb0;
+  font-size: 7px;
+  line-height: 1.45;
+}
+
+.spacecraft-part dl {
+  display: grid;
+  grid-template-columns: 0.75fr 1.4fr 0.75fr;
+  gap: 4px;
+  padding: 6px 0 0;
+  margin: 0;
+  border-top: 1px solid rgba(48, 69, 91, 0.6);
+}
+
+.spacecraft-part dl > div {
+  min-width: 0;
+}
+
+.spacecraft-part dt {
+  margin-bottom: 3px;
+  color: #6f879f;
+  font-family: var(--mono);
+  font-size: 6px;
+  letter-spacing: 0.45px;
+  text-transform: uppercase;
+}
+
+.spacecraft-part dd {
+  margin: 0;
+  color: #b4c9d9;
+  font-size: 7px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.spacecraft-part-extra {
+  display: block;
+  margin-top: 5px;
+  color: #72c6dc;
+  font-size: 7px;
+}
+
+.spacecraft-resource-note {
+  margin: 10px 0 0;
+  color: #71839a;
+  font-size: 7px;
+  line-height: 1.55;
+}
+
+.spacecraft-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 1000px) {
+  .spacecraft-workshop-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .spacecraft-part-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 560px) {
+  .spacecraft-stage {
+    height: 250px;
+  }
+
+  .spacecraft-view-controls {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .spacecraft-view-controls > div {
+    flex-wrap: wrap;
+  }
+
+  .spacecraft-part-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

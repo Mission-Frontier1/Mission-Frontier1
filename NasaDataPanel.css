@@ -1,0 +1,206 @@
+.nasa-data-panel {
+  margin-top: 23px;
+  padding: 15px;
+  border: 1px solid #1e2d42;
+  border-radius: 7px;
+  background: linear-gradient(145deg, rgba(15, 26, 43, 0.96), rgba(12, 21, 35, 0.96));
+}
+
+.nasa-data-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.nasa-data-heading h2 {
+  margin: 5px 0 0;
+  color: #e6eff9;
+  font-size: 17px;
+  font-weight: 550;
+  letter-spacing: -0.3px;
+}
+
+.nasa-data-heading p {
+  margin: 6px 0 0;
+  color: #91a1b6;
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+.nasa-data-badge,
+.nasa-data-card-label {
+  color: #8bc7dc;
+  font-family: var(--mono);
+  font-size: 7px;
+  letter-spacing: 0.7px;
+}
+
+.nasa-data-badge {
+  flex: 0 0 auto;
+  padding: 5px 7px;
+  border: 1px solid rgba(98, 167, 197, 0.25);
+  border-radius: 3px;
+  background: rgba(31, 99, 126, 0.1);
+}
+
+.nasa-data-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 10px;
+}
+
+.nasa-lunar-data {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: 12px;
+}
+
+.nasa-lunar-data-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.nasa-lunar-data-heading h3 {
+  margin: 5px 0 0;
+  color: #dce8f5;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.nasa-lunar-data-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.nasa-lola-facts {
+  padding: 12px;
+  border: 1px solid #26374c;
+  border-radius: 5px;
+  background: rgba(13, 24, 40, 0.72);
+}
+
+.nasa-lola-facts p:not(.nasa-data-message, .nasa-source-line) {
+  margin: 8px 0 0;
+  color: #cbd9e8;
+  font-size: 9px;
+  line-height: 1.65;
+}
+
+.nasa-data-card {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #26374c;
+  border-radius: 5px;
+  background: rgba(13, 24, 40, 0.72);
+}
+
+.nasa-data-card h3 {
+  margin: 8px 0;
+  color: #dce8f5;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.nasa-planet-fact {
+  margin: 14px 0 17px;
+  color: #e0edf8;
+  font-size: 15px;
+  font-weight: 550;
+}
+
+.nasa-data-message,
+.nasa-mission-description,
+.nasa-image-credit,
+.nasa-source-line,
+.nasa-retrieved-date {
+  color: #8e9fb4;
+  font-size: 8px;
+  line-height: 1.6;
+}
+
+.nasa-data-message {
+  margin: 12px 0 0;
+}
+
+.nasa-source-line {
+  margin: 9px 0 0;
+}
+
+.nasa-source-line a {
+  color: #78cde5;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.nasa-source-line a:hover {
+  color: #a0e9fc;
+}
+
+.nasa-retrieved-date {
+  display: block;
+  margin-top: 4px;
+  color: #71839a;
+}
+
+.nasa-image-link {
+  display: block;
+  overflow: hidden;
+  margin-top: 9px;
+  border: 1px solid #26374c;
+  border-radius: 4px;
+  background: #0a1422;
+}
+
+.nasa-image-link img {
+  width: 100%;
+  max-height: 180px;
+  display: block;
+  object-fit: cover;
+}
+
+.nasa-mission-description {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 0;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
+.nasa-image-credit {
+  margin: 7px 0 0;
+  color: #71839a;
+}
+
+.nasa-data-disclaimer {
+  margin: 10px 0 0;
+  color: #71839a;
+  font-size: 8px;
+  line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+  .nasa-data-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nasa-lunar-data-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .nasa-data-panel {
+    padding: 12px;
+  }
+
+  .nasa-data-heading {
+    flex-direction: column;
+    gap: 9px;
+  }
+}
