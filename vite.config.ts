@@ -20,6 +20,7 @@ const nasaProxies = {
 }
 
 export default defineConfig({
+  base: '/Mission-Frontier1/',
   plugins: [react()],
   server: { proxy: nasaProxies },
   preview: { proxy: nasaProxies },
